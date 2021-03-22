@@ -7,9 +7,6 @@ DISPLAY_HEIGHT = 750
 
 gameDisplay = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
 
-# black = (0, 0, 0)
-# white = (255, 255, 255)
-
 clock = pygame.time.Clock()
 stopped = False
 
