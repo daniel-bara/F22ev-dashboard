@@ -18,10 +18,10 @@ CAN_MESSAGES_DIM = (500, 300)
 
 LAP_INFO_POS = (470, 100)
 
-SPEED_POS = (0, 250)
+SPEED_POS = (920, 500)
 POWER_OUTPUT_POS = (100, 500)
 BATT_CHG_POS = (800, 250)
-BATT_TMP_POS = (950, 500)
+BATT_TMP_POS = (0, 250)
 
 
 BATT_CHG_COL = pygame.Color('white')
@@ -33,10 +33,10 @@ LAP_INFO_COL = pygame.Color("white")
 FPS_FONT = pygame.font.SysFont("Arial", 18)
 BATT_CHG_FONT = pygame.font.SysFont("lucida console", 178)
 BATT_CHG_UNIT_FONT = pygame.font.SysFont("lucida sans", 42)
-BATT_TMP_FONT = pygame.font.SysFont("lucida console", 75)
-BATT_TMP_UNIT_FONT = pygame.font.SysFont("lucida sans", 38)
-SPEED_FONT = pygame.font.SysFont("lucida console", 178)
-SPEED_UNIT_FONT = pygame.font.SysFont("lucida sans", 42)
+BATT_TMP_FONT = pygame.font.SysFont("lucida console", 178)
+BATT_TMP_UNIT_FONT = pygame.font.SysFont("lucida sans", 42)
+SPEED_FONT = pygame.font.SysFont("lucida console", 75)
+SPEED_UNIT_FONT = pygame.font.SysFont("lucida sans", 38)
 POWER_OUTPUT_FONT = pygame.font.SysFont("lucida console", 75)
 POWER_OUTPUT_UNIT_FONT = pygame.font.SysFont("lucida sans", 38)
 LAP_INFO_FONT = pygame.font.SysFont("lucida sans", 45)
@@ -104,14 +104,15 @@ while not stopped:
     gameDisplay.blit(BATT_CHG_UNIT_FONT.render("%", True, BATT_CHG_COL), (BATT_CHG_POS[0] + 320, BATT_CHG_POS[1] + 98))
 
     # battery temperature
-    battery_temperature = 124
+    battery_temperature = 70
     gameDisplay.blit(BATT_TMP_FONT.render(str(int(battery_temperature)).rjust(3, " "), True, BATT_TMP_COL),
                      BATT_TMP_POS)
-    gameDisplay.blit(BATT_TMP_UNIT_FONT.render("°C", True, BATT_TMP_COL), (BATT_TMP_POS[0] + 145, BATT_TMP_POS[1] + 20))
+    gameDisplay.blit(BATT_TMP_UNIT_FONT.render("°C", True, BATT_TMP_COL), (BATT_TMP_POS[0] + 325, BATT_TMP_POS[1] + 95))
 
+    # speed
     speed = 43
     gameDisplay.blit(SPEED_FONT.render(str(int(speed)).rjust(3, " "), True, SPEED_COL), SPEED_POS)
-    gameDisplay.blit(SPEED_UNIT_FONT.render("mph", True, SPEED_COL), (SPEED_POS[0] + 320, SPEED_POS[1] + 98))
+    gameDisplay.blit(SPEED_UNIT_FONT.render("mph", True, SPEED_COL), (SPEED_POS[0] + 140, SPEED_POS[1] + 20))
 
     # power output
     power_output = 5
