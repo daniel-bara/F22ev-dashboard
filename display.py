@@ -125,15 +125,24 @@ while not stopped:
     power_consumption_feedback_average = -2
     power_consumption_feedback_average_text = ("+" * (power_consumption_feedback_average >= 1)) + \
                                               str(int(power_consumption_feedback_average))
-    gameDisplay.blit(LAP_INFO_FONT.render("AVG   " + power_consumption_feedback_average_text + "%",
+    gameDisplay.blit(LAP_INFO_FONT.render("AVG           LAST" + power_consumption_feedback_average_text + "%",
                                           True, LAP_INFO_COL), (LAP_INFO_POS[0], LAP_INFO_POS[1] + LAP_INFO_SPACING))
 
     power_consumption_feedback_total = 3
     power_consumption_feedback_total_text = ("+" * (power_consumption_feedback_total >= 1)) + \
                                             str(int(power_consumption_feedback_total))
-    gameDisplay.blit(LAP_INFO_FONT.render("LAST " + power_consumption_feedback_total_text + "%",
+    gameDisplay.blit(LAP_INFO_FONT.render(power_consumption_feedback_total_text + "%",
                                           True, LAP_INFO_COL),
                      (LAP_INFO_POS[0], LAP_INFO_POS[1] + LAP_INFO_SPACING * 2))
+
+    # graph TODO: extend prototype to working solution, maybe add a graph of 2 or more recent laps
+    FEEDB_GRAPH_POS = (LAP_INFO_POS[0]+110, LAP_INFO_POS[1]+120)
+    r = pygame.rect.Rect(FEEDB_GRAPH_POS[0], FEEDB_GRAPH_POS[1]-45, 30, 45)
+    gameDisplay.fill(pygame.Color("orange"), r)
+    r = pygame.rect.Rect(FEEDB_GRAPH_POS[0]+100, FEEDB_GRAPH_POS[1], 15, 30)
+    gameDisplay.fill(pygame.Color("green"), r)
+    pygame.draw.line(gameDisplay, pygame.Color("white"), FEEDB_GRAPH_POS, (FEEDB_GRAPH_POS[0] + 115, FEEDB_GRAPH_POS[1]))
+
 
     # CAN messages
     r = pygame.rect.Rect(*CAN_MESSAGES_POS, *CAN_MESSAGES_DIM)
