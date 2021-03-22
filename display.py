@@ -119,21 +119,23 @@ while not stopped:
                      (POWER_OUTPUT_POS[0] + 138, POWER_OUTPUT_POS[1] + 21))
 
     # lap info
-    gameDisplay.blit(
-        LAP_INFO_FONT.render(str(lap_counter.current_lap).rjust(2, " ") + " / " + str(lap_counter.total_laps) + " laps",
-                             True, LAP_INFO_COL), LAP_INFO_POS)
     power_consumption_feedback_average = -2
     power_consumption_feedback_average_text = ("+" * (power_consumption_feedback_average >= 1)) + \
                                               str(int(power_consumption_feedback_average))
-    gameDisplay.blit(LAP_INFO_FONT.render("AVG           LAST" + power_consumption_feedback_average_text + "%",
+    gameDisplay.blit(LAP_INFO_FONT.render("AVG           LAST",
                                           True, LAP_INFO_COL), (LAP_INFO_POS[0], LAP_INFO_POS[1] + LAP_INFO_SPACING))
 
     power_consumption_feedback_total = 3
     power_consumption_feedback_total_text = ("+" * (power_consumption_feedback_total >= 1)) + \
                                             str(int(power_consumption_feedback_total))
-    gameDisplay.blit(LAP_INFO_FONT.render(power_consumption_feedback_total_text + "%",
+    gameDisplay.blit(LAP_INFO_FONT.render(power_consumption_feedback_total_text + "%" + "            " +
+                                          power_consumption_feedback_average_text + "%",
                                           True, LAP_INFO_COL),
                      (LAP_INFO_POS[0], LAP_INFO_POS[1] + LAP_INFO_SPACING * 2))
+
+    gameDisplay.blit(
+        LAP_INFO_FONT.render(str(lap_counter.current_lap).rjust(2, " ") + " / " + str(lap_counter.total_laps) + " laps",
+                             True, LAP_INFO_COL), LAP_INFO_POS)
 
     # graph TODO: extend prototype to working solution, maybe add a graph of 2 or more recent laps
     FEEDB_GRAPH_POS = (LAP_INFO_POS[0]+110, LAP_INFO_POS[1]+120)
