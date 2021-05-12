@@ -37,13 +37,13 @@ SPEED_UNIT_FONT = pygame.font.SysFont("lucida sans", 38)
 POWER_OUTPUT_FONT = pygame.font.SysFont("lucida console", 75)
 POWER_OUTPUT_UNIT_FONT = pygame.font.SysFont("lucida sans", 38)
 LAP_INFO_FONT = pygame.font.SysFont("lucida sans", 45)
-CAN_MSG_FONT = pygame.font.SysFont("leelawadee ui", 18)
+CAN_MSG_FONT = pygame.font.SysFont("leelawadee ui", 24)
 
-CAN_MESSAGES_LINE_SPACING = 22
+CAN_MESSAGES_LINE_SPACING = 26
 CAN_MESSAGES_PADDING = 5
-MAX_CAN_MESSAGE_COUNT = 13
+MAX_CAN_MESSAGE_COUNT = 12
 
-LAP_INFO_SPACING = 55
+LAP_INFO_SPACING = 65
 
 
 class Fps:
